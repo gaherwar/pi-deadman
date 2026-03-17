@@ -1,0 +1,24 @@
+{
+  "name": "pi-deadman",
+  "version": "1.0.0",
+  "description": "Dead man's switch for AI coding agents — monitors macOS memory pressure, gates heavy operations, and auto-kills runaway processes before your system locks up.",
+  "type": "module",
+  "keywords": ["pi-package", "memory", "macos", "watchdog", "system-health", "deadman"],
+  "pi": {
+    "extensions": ["./extensions/index.ts"]
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^3.0.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.0"
+  },
+  "os": ["darwin"],
+  "license": "MIT"
+}
