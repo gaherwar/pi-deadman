@@ -1,0 +1,5 @@
+__tests__/
+tsconfig.json
+vitest.config.ts
+.DS_Store
+node_modules/
