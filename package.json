@@ -1,6 +1,6 @@
 {
   "name": "pi-deadman",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Dead man's switch for AI coding agents — monitors memory pressure, gates heavy operations, and kills runaway processes.",
   "type": "module",
   "keywords": [

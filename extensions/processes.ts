@@ -84,6 +84,7 @@ export function formatProcessList(processes: ProcessInfo[], limit: number): stri
     .map(proc => `${proc.name} (PID ${proc.pid}) — ${proc.footprint_mb} MB`);
 }
 
+// User-initiated kill from interactive menu — graceful SIGTERM
 export function killProcess(pid: number): boolean {
   try {
     process.kill(pid, "SIGTERM");

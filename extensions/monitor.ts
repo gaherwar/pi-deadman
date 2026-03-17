@@ -251,6 +251,7 @@ export class Monitor {
           );
 
           if (decision) {
+            // Auto-kill: SIGKILL pi's own child processes in confirmed RED zone
             for (const target of decision.targets) {
               try {
                 process.kill(target.pid, "SIGKILL");
@@ -411,6 +412,7 @@ export class Monitor {
       );
 
       if (decision) {
+        // Fast watchdog auto-kill: SIGKILL pi's child processes in confirmed RED
         for (const target of decision.targets) {
           try {
             process.kill(target.pid, "SIGKILL");

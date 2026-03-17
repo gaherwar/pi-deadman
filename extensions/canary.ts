@@ -1,6 +1,7 @@
 // canary.ts — 5 micro-operations timed in sequence for system degradation detection
 import { execSync, spawnSync } from 'child_process';
 import { readFileSync, readdirSync } from 'fs';
+import { fileURLToPath } from 'url';
 
 export interface CanaryResult {
   sysctl_ms: number;
@@ -22,9 +23,9 @@ export async function runCanary(): Promise<CanaryResult> {
   spawnSync('/usr/bin/true');
   const spawn_ms = performance.now() - spawn_start;
 
-  // read_ms: Read `/etc/hosts` via `fs.readFileSync` and time it
+  // read_ms: Read this file as a disk I/O benchmark
   const read_start = performance.now();
-  readFileSync('/etc/hosts');
+  readFileSync(fileURLToPath(import.meta.url));
   const read_ms = performance.now() - read_start;
 
   // dir_ms: Read `/tmp` directory via `fs.readdirSync` and time it

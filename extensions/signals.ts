@@ -76,6 +76,7 @@ export async function collectSignals(): Promise<SystemSignals> {
   };
 }
 
+// Read macOS virtual memory page statistics (pages paged in/out, compressed, etc.)
 function getVmStat(): Record<string, number> {
   try {
     const output = execSync("vm_stat", { encoding: "utf8", timeout: 5000 });
@@ -98,6 +99,7 @@ function getVmStat(): Record<string, number> {
   }
 }
 
+// Read macOS memory pressure level: 1=normal, 2=warn, 4=critical
 function getPressureLevel(): number {
   try {
     const output = execSync("sysctl -n kern.memorystatus_vm_pressure_level", { 
@@ -114,6 +116,7 @@ function getPressureLevel(): number {
   }
 }
 
+// Read macOS memorystatus percentage (0-100, higher = more available)
 function getMemorystatusLevel(): number {
   try {
     const output = execSync("sysctl -n kern.memorystatus_level", { 
@@ -127,6 +130,7 @@ function getMemorystatusLevel(): number {
   }
 }
 
+// Read macOS swap usage: total and used bytes
 function getSwapUsage(): [number, number] {
   try {
     const output = execSync("sysctl -n vm.swapusage", { 
