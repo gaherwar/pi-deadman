@@ -11,7 +11,7 @@ AI coding agents run builds, tests, installs, and browser automation with no awa
 ## Install
 
 ```bash
-pi install git:github.com/AGameofCodes/pi-deadman
+pi install git:github.com/gaherwar/pi-deadman
 ```
 
 On first run, pi-deadman calibrates a baseline for your machine (~10 seconds of canary tests). After that, it runs in the background — no configuration needed.
