@@ -1,15 +1,24 @@
 {
   "name": "pi-deadman",
-  "version": "1.3.2",
-  "description": "Protecting that critical 10% of your memory.",
+  "version": "1.4.0",
+  "description": "Prevents macOS freezes during pi sessions. Auto-kills runaway processes when memory runs out.",
   "type": "module",
   "keywords": [
     "pi-package",
     "memory",
     "macos",
     "watchdog",
+    "deadman",
+    "freeze",
+    "crash",
+    "oom",
+    "swap",
+    "ram",
+    "memory-pressure",
+    "kill",
+    "process-manager",
     "system-health",
-    "deadman"
+    "8gb"
   ],
   "pi": {
     "extensions": [
