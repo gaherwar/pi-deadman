@@ -12,7 +12,7 @@ describe("Monitor", () => {
   let logDir: string;
 
   beforeEach(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "deadman-monitor-test-"));
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "breaker-monitor-test-"));
     baselinePath = path.join(tmpDir, "baseline.json");
     logDir = path.join(tmpDir, "logs");
   });

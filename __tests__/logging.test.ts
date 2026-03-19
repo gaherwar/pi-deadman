@@ -10,7 +10,7 @@ describe("Logger", () => {
   let logger: Logger;
 
   beforeEach(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "deadman-log-test-"));
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "breaker-log-test-"));
     logger = new Logger(tmpDir);
   });
 

@@ -73,14 +73,14 @@ def parse_etime(etime_str):
 
 
 
-# Infrastructure process names that pi-deadman itself spawns — must never be kill targets
+# Infrastructure process names that pi-breaker itself spawns — must never be kill targets
 # or pollute the snapshot ring buffer. Kept in sync with INFRA_NAMES in monitor.ts.
 INFRA_NAMES = frozenset([
     "ps", "grep", "awk", "sed", "cut", "head", "tail", "wc",
     "sh", "bash", "zsh",
     "Python", "python3", "python",
     "footprint_worker.py",
-    # pi-deadman's own monitoring subprocesses
+    # pi-breaker's own monitoring subprocesses
     "sysctl", "vm_stat", "true", "memory_pressure",
 ])
 

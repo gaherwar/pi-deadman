@@ -367,14 +367,14 @@ export class Monitor {
       if (childPids.size === 0) return;
 
       // Exclude transient infrastructure processes (our own tools, not runaway targets)
-      // Includes everything pi-deadman itself spawns: canary.ts (sysctl, true),
+      // Includes everything pi-breaker itself spawns: canary.ts (sysctl, true),
       // signals.ts (sysctl, vm_stat), processes.ts (python3, ps), worker.ts (python3)
       const INFRA_NAMES = new Set([
         "ps", "grep", "awk", "sed", "cut", "head", "tail", "wc",
         "sh", "bash", "zsh",
         "Python", "python3", "python", "Python.app",
         "footprint_worker.py",
-        // pi-deadman's own monitoring subprocesses — must never be kill targets
+        // pi-breaker's own monitoring subprocesses — must never be kill targets
         "sysctl", "vm_stat", "true", "memory_pressure",
         // Zombie/defunct processes — already dead, killing them is useless
         "<defunct>",

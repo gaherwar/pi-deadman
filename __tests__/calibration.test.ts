@@ -10,7 +10,7 @@ describe("Baseline persistence", () => {
   let baselinePath: string;
 
   beforeEach(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "deadman-test-"));
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "breaker-test-"));
     baselinePath = path.join(tmpDir, "baseline.json");
   });
 

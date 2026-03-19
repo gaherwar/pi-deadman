@@ -1,13 +1,11 @@
-# pi-deadman
+# pi-breaker
 
-Protecting that critical 10% of your memory.
-
-Dead man's switch for AI coding agents. Install it, forget it. When your system runs out of memory, it steps in automatically.
+Prevents macOS freezes during pi sessions. Auto-kills runaway processes when memory runs out.
 
 ## Install
 
 ```bash
-pi install npm:pi-deadman
+pi install npm:pi-breaker
 ```
 
 On first run, it calibrates a baseline for your machine (~10 seconds). After that, it runs silently in the background.
@@ -26,11 +24,11 @@ On first run, it calibrates a baseline for your machine (~10 seconds). After tha
 
 | Command | Description |
 |---|---|
-| `/deadman` | Crashes prevented since install |
+| `/breaker` | Crashes prevented since install |
 
 ## Security & System Calls
 
-pi-deadman makes **no network requests** and reads **no environment variables**. All system access is local and documented here:
+pi-breaker makes **no network requests** and reads **no environment variables**. All system access is local and documented here:
 
 **Shell commands** (all read-only queries, no mutations):
 | Command | File | Purpose |
@@ -51,12 +49,12 @@ pi-deadman makes **no network requests** and reads **no environment variables**.
 |---|---|---|
 | `SIGKILL` | monitor.ts | Watchdog auto-kill in confirmed RED zone |
 
-**Filesystem writes** (scoped to `~/.pi/deadman/` only):
+**Filesystem writes** (scoped to `~/.pi/breaker/` only):
 | What | File | Purpose |
 |---|---|---|
-| `~/.pi/deadman/baseline.json` | calibration.ts | Persisted canary baseline |
-| `~/.pi/deadman/stats.json` | index.ts | Kill counter (crashes prevented) |
-| `~/.pi/deadman/logs/*.jsonl` | logging.ts | Structured logs (auto-GC after 3 days) |
+| `~/.pi/breaker/baseline.json` | calibration.ts | Persisted canary baseline |
+| `~/.pi/breaker/stats.json` | index.ts | Kill counter (crashes prevented) |
+| `~/.pi/breaker/logs/*.jsonl` | logging.ts | Structured logs (auto-GC after 3 days) |
 
 ## Development
 

@@ -1,4 +1,4 @@
-// index.ts — Pi extension entry point: background monitor lifecycle, /deadman command, auto-kill notifications
+// index.ts — Pi extension entry point: background monitor lifecycle, /breaker command, auto-kill notifications
 
 import * as fs from "node:fs";
 import * as path from "node:path";
@@ -16,7 +16,7 @@ interface Stats {
   first_active: string; // ISO date
 }
 
-const STATS_FILE = path.join(os.homedir(), ".pi", "deadman", "stats.json");
+const STATS_FILE = path.join(os.homedir(), ".pi", "breaker", "stats.json");
 
 export function loadStats(): Stats {
   try {
@@ -57,7 +57,7 @@ export default function (pi: any) {
     return;
   }
 
-  const DATA_DIR = path.join(os.homedir(), ".pi", "deadman");
+  const DATA_DIR = path.join(os.homedir(), ".pi", "breaker");
   const monitor = new Monitor({
     baselinePath: path.join(DATA_DIR, "baseline.json"),
     logDir: path.join(DATA_DIR, "logs"),
@@ -79,7 +79,7 @@ export default function (pi: any) {
       const names = decision.targets.map((t: any) => `${t.name} (${t.footprint_mb} MB)`).join(", ");
       const updatedStats = incrementKills(decision.targets.length);
       ctx.ui.notify(
-        `Deadman killed ${names} for overstepping memory consumption. (${updatedStats.kills_total} crashes prevented so far)`,
+        `pi-breaker killed ${names} for overstepping memory consumption. (${updatedStats.kills_total} crashes prevented so far)`,
         "warning",
       );
     });
@@ -146,9 +146,9 @@ export default function (pi: any) {
     return undefined;
   });
 
-  // Register /deadman command — shows crashes prevented
-  pi.registerCommand("deadman", {
-    description: "Show pi-deadman status",
+  // Register /breaker command — shows crashes prevented
+  pi.registerCommand("breaker", {
+    description: "Show pi-breaker status",
     handler: async (_args: any, ctx: any) => {
       const snap = monitor.getSnapshot();
       const stats = loadStats();

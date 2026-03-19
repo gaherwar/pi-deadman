@@ -1,6 +1,6 @@
 {
-  "name": "pi-deadman",
-  "version": "1.4.1",
+  "name": "pi-breaker",
+  "version": "1.0.0",
   "description": "Prevents macOS freezes during pi sessions. Auto-kills runaway processes when memory runs out.",
   "type": "module",
   "keywords": [
@@ -8,7 +8,7 @@
     "memory",
     "macos",
     "watchdog",
-    "deadman",
+    "breaker",
     "freeze",
     "crash",
     "oom",
@@ -39,11 +39,11 @@
   "author": "gaherwar",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gaherwar/pi-deadman.git"
+    "url": "git+https://github.com/gaherwar/pi-breaker.git"
   },
-  "homepage": "https://github.com/gaherwar/pi-deadman#readme",
+  "homepage": "https://github.com/gaherwar/pi-breaker#readme",
   "bugs": {
-    "url": "https://github.com/gaherwar/pi-deadman/issues"
+    "url": "https://github.com/gaherwar/pi-breaker/issues"
   },
   "license": "MIT"
 }

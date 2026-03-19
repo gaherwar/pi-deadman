@@ -21,11 +21,11 @@ describe("getQuickMemorySnapshot", () => {
 });
 
 describe("Stats persistence", () => {
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "deadman-stats-"));
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "breaker-stats-"));
   const originalHome = process.env.HOME;
 
   beforeEach(() => {
-    // Stats file reads from ~/.pi/deadman/stats.json — we test the functions directly
+    // Stats file reads from ~/.pi/breaker/stats.json — we test the functions directly
   });
 
   it("loadStats returns defaults when no file exists", () => {

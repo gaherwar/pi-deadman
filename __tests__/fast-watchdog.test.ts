@@ -17,7 +17,7 @@ describe("Fast Watchdog Integration", () => {
   let childProc: ChildProcess | null = null;
 
   beforeEach(() => {
-    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "deadman-watchdog-int-"));
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "breaker-watchdog-int-"));
     baselinePath = path.join(tmpDir, "baseline.json");
     logDir = path.join(tmpDir, "logs");
 
